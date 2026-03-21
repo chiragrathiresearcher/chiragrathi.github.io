@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chirag Rathi — Independent Researcher</title>
+  <meta name="description" content="Chirag Rathi — Independent researcher working at the intersection of autonomous systems, quantum foundations, and aerospace engineering. Founder of NEXERCH."/>
+  <meta name="keywords" content="Chirag Rathi, researcher, NEXERCH, ARVS, ATLAS, M17, quantum physics, aerospace, autonomous systems, independent researcher"/>
+  <meta name="author" content="Chirag Rathi"/>
+  <meta property="og:title" content="Chirag Rathi — Independent Researcher"/>
+  <meta property="og:description" content="Independent researcher working at the intersection of autonomous systems, quantum foundations, and aerospace engineering."/>
+  <meta property="og:url" content="https://chiragrathi.github.io"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #8b8b8b;
+      --gray-light: #d0d0d0;
+      --border: rgba(255,255,255,0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 60px;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name { font-size: 14px; font-weight: 500; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; gap: 12px; }
+    .nav-btn { padding: 8px 20px; font-size: 13px; text-decoration: none; border-radius: 4px; transition: all 0.2s; }
+    .nav-btn-ghost { color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
+    .nav-btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .nav-btn-solid { background: var(--white); color: var(--black); }
+    .nav-btn-solid:hover { background: var(--gray-light); }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 48px 80px; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, transparent 40%, rgba(0,0,0,0.7) 100%); }
+    .hero-orbital {
+      position: absolute; right: -50px; top: 50%; transform: translateY(-50%);
+      opacity: 0.05;
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 800px; }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 1s ease 0.2s forwards;
+    }
+    .hero-name {
+      font-size: clamp(52px, 8vw, 110px); font-weight: 300;
+      letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 1s ease 0.4s forwards;
+    }
+    .hero-name .first { color: var(--white); display: block; }
+    .hero-name .last { color: rgba(255,255,255,0.25); display: block; }
+    .hero-desc {
+      font-size: clamp(15px, 2vw, 18px); color: var(--gray-light); font-weight: 300;
+      max-width: 560px; line-height: 1.7; margin-bottom: 16px;
+      opacity: 0; animation: fadeUp 1s ease 0.6s forwards;
+    }
+    .hero-tagline {
+      font-size: 14px; color: var(--gray); font-style: italic; margin-bottom: 48px;
+      opacity: 0; animation: fadeUp 1s ease 0.75s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; font-size: 13px; font-weight: 400;
+      text-decoration: none; border-radius: 4px; transition: all 0.25s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-white { background: var(--white); color: var(--black); }
+    .btn-white:hover { background: var(--gray-light); transform: translateY(-1px); }
+    .btn-outline { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+    .btn-outline:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stat { padding: 40px 32px; border-right: 1px solid var(--border); text-align: center; }
+    .stat:last-child { border-right: none; }
+    .stat-value { font-size: 40px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1; }
+    .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+
+    /* SECTIONS */
+    .sec { padding: 100px 48px; border-bottom: 1px solid var(--border); max-width: 1400px; margin: 0 auto; }
+    .sec-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .sec-title { font-size: clamp(28px, 4vw, 42px); font-weight: 300; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .sec-sub { font-size: 15px; color: var(--gray); max-width: 560px; line-height: 1.7; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; align-items: start; }
+    .about-text { font-size: 15px; color: var(--gray-light); line-height: 1.8; }
+    .about-text p { margin-bottom: 20px; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-facts { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .fact { background: var(--black); padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; }
+    .fact-label { font-size: 12px; color: var(--gray); letter-spacing: 0.05em; }
+    .fact-value { font-size: 13px; color: var(--white); text-align: right; }
+
+    /* RESEARCH */
+    .research-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 64px; }
+    .research-card {
+      padding: 48px; border: 1px solid var(--border); margin: -1px 0 0 -1px;
+      text-decoration: none; color: inherit; display: block; position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .research-card::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.02); opacity: 0; transition: opacity 0.3s; }
+    .research-card:hover::before { opacity: 1; }
+    .rc-id { font-size: 10px; letter-spacing: 0.2em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+    .rc-name { font-size: 22px; font-weight: 300; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .rc-full { font-size: 12px; color: var(--gray); margin-bottom: 20px; }
+    .rc-desc { font-size: 13px; color: var(--gray-light); line-height: 1.75; margin-bottom: 32px; }
+    .rc-footer { display: flex; align-items: center; justify-content: space-between; }
+    .rc-status { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .rc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--white); }
+    .rc-status.active .rc-dot { animation: pulse 2s ease-in-out infinite; }
+    .rc-arrow { font-size: 18px; color: var(--gray); transition: color 0.2s, transform 0.2s; }
+    .research-card:hover .rc-arrow { color: var(--white); transform: translateX(4px); }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; margin-top: 64px; }
+    .pub-card {
+      display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+      padding: 36px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: inherit; transition: opacity 0.2s;
+    }
+    .pub-card:first-child { border-top: 1px solid var(--border); }
+    .pub-card:hover { opacity: 0.65; }
+    .pub-tag { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+    .pub-title { font-size: 16px; font-weight: 300; letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 6px; }
+    .pub-meta { font-size: 12px; color: var(--gray); }
+    .pub-doi { font-size: 11px; color: var(--gray); font-family: 'Courier New', monospace; white-space: nowrap; }
+
+    /* MISSION */
+    .mission-sec {
+      padding: 140px 48px; border-bottom: 1px solid var(--border);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .mission-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,255,255,0.025) 0%, transparent 70%); }
+    .mission-main { font-size: clamp(22px, 4vw, 48px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; max-width: 800px; margin: 0 auto 16px; position: relative; }
+    .mission-sub { font-size: clamp(13px, 1.8vw, 16px); color: var(--gray); position: relative; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; align-items: start; }
+    .contact-intro { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 40px; }
+    .contact-links { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+    .contact-link {
+      background: var(--black); padding: 20px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none; color: inherit; transition: background 0.2s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.04); }
+    .cl-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .cl-value { font-size: 13px; color: var(--white); }
+    .cl-arrow { color: var(--gray); font-size: 14px; transition: color 0.2s; }
+    .contact-link:hover .cl-arrow { color: var(--white); }
+    .contact-email { font-size: 22px; font-weight: 300; letter-spacing: -0.01em; color: var(--white); text-decoration: none; display: block; margin-bottom: 32px; transition: opacity 0.2s; }
+    .contact-email:hover { opacity: 0.6; }
+    .contact-email-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; }
+
+    /* FOOTER */
+    footer { padding: 48px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .foot-name { font-size: 14px; font-weight: 500; letter-spacing: 0.08em; }
+    .foot-tag { font-size: 12px; color: var(--gray); font-style: italic; margin-top: 4px; }
+    .foot-links { display: flex; gap: 28px; }
+    .foot-links a { font-size: 12px; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--white); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 28px 20px; }
+      .sec { padding: 64px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .research-card { padding: 28px 24px; }
+      .pub-card { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .mission-sec { padding: 80px 24px; }
+      footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Chirag Rathi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="https://nexerch.github.io" target="_blank" class="nav-btn nav-btn-ghost">NEXERCH</a>
+    <a href="#contact" class="nav-btn nav-btn-solid">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-orbital">
+    <svg width="700" height="700" viewBox="0 0 700 700" fill="none">
+      <ellipse cx="350" cy="350" rx="320" ry="100" stroke="white" stroke-width="0.5"/>
+      <ellipse cx="350" cy="350" rx="230" ry="72" stroke="white" stroke-width="0.4" transform="rotate(35 350 350)"/>
+      <ellipse cx="350" cy="350" rx="160" ry="50" stroke="white" stroke-width="0.3" transform="rotate(65 350 350)"/>
+      <ellipse cx="350" cy="350" rx="280" ry="88" stroke="white" stroke-width="0.3" transform="rotate(-20 350 350)"/>
+      <circle cx="350" cy="350" r="10" fill="white" opacity="0.4"/>
+      <circle cx="350" cy="350" r="4" fill="white"/>
+      <circle cx="670" cy="350" r="5" fill="white" opacity="0.3"/>
+      <circle cx="30" cy="350" r="5" fill="white" opacity="0.3"/>
+      <circle cx="510" cy="268" r="3.5" fill="white" opacity="0.25"/>
+      <circle cx="190" cy="432" r="3.5" fill="white" opacity="0.25"/>
+      <circle cx="350" cy="250" r="3" fill="white" opacity="0.2"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Independent Researcher · Delhi, India</div>
+    <h1 class="hero-name">
+      <span class="first">Chirag</span>
+      <span class="last">Rathi</span>
+    </h1>
+    <p class="hero-desc">Working at the intersection of autonomous systems, quantum foundations, cosmology, and aerospace engineering. Founder of NEXERCH.</p>
+    <p class="hero-tagline">"We move at the speed the problem burns."</p>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-white">View Research</a>
+      <a href="https://nexerch.github.io" target="_blank" class="btn btn-outline">NEXERCH →</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-value">6+</div><div class="stat-label">Research Projects</div></div>
+  <div class="stat"><div class="stat-value">4+</div><div class="stat-label">Published Preprints</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Under Peer Review</div></div>
+  <div class="stat"><div class="stat-value">17</div><div class="stat-label">Years Old</div></div>
+</div>
+
+<!-- ABOUT -->
+<div class="sec" id="about">
+  <div class="sec-label">About</div>
+  <h2 class="sec-title">Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am an independent researcher based in Delhi, India, working across theoretical physics, cosmology, aerospace engineering, and autonomous systems. I have no institutional affiliation — all work is self-directed and self-funded.</p>
+      <p>I began independent research at 15, teaching myself quantum mechanics, operator theory, and aerospace engineering through MIT OpenCourseWare. My background is in PCB (Biology stream) — I have no formal mathematics training beyond secondary school.</p>
+      <p>In 2026 I founded NEXERCH — an independent research organization building systems that operate reliably under uncertainty. I will be joining IISER Pune in 2026 for the BS-MS programme in Theoretical and Mathematical Physics.</p>
+      <p>My research philosophy is simple: if the work needs to be done, it gets done. No institution required. No permission needed.</p>
+    </div>
+    <div class="about-facts">
+      <div class="fact"><span class="fact-label">Location</span><span class="fact-value">Delhi, India</span></div>
+      <div class="fact"><span class="fact-label">ORCID</span><span class="fact-value">0009-0008-1682-4369</span></div>
+      <div class="fact"><span class="fact-label">Affiliation</span><span class="fact-value">Independent · NEXERCH</span></div>
+      <div class="fact"><span class="fact-label">Upcoming</span><span class="fact-value">IISER Pune 2026</span></div>
+      <div class="fact"><span class="fact-label">Research Areas</span><span class="fact-value">Physics · Aerospace · Cosmology</span></div>
+      <div class="fact"><span class="fact-label">GitHub</span><span class="fact-value">chiragrathiresearcher</span></div>
+      <div class="fact"><span class="fact-label">Company</span><span class="fact-value">Nexearch (registering Nov 2026)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research" style="border-bottom: 1px solid var(--border);">
+  <div class="sec" style="border:none; padding-bottom:48px;">
+    <div class="sec-label">Active Systems</div>
+    <h2 class="sec-title">Research</h2>
+    <p class="sec-sub">Production-grade systems built independently. Every constant traceable. Every decision auditable.</p>
+  </div>
+  <div class="research-grid">
+    <a href="https://github.com/NEXERCH/ARVS" target="_blank" class="research-card">
+      <div class="rc-id">SYS — 001</div>
+      <div class="rc-name">ARVS</div>
+      <div class="rc-full">Adaptive Robust Verification System</div>
+      <div class="rc-desc">Research-grade autonomy architecture for spacecraft, rovers, and safety-critical systems. 25 frozen axioms across 9 categories. Non-bypassable authority layer. Validated against NASA REMS, NASA SPICE, ESA Mars Express, and ISS OSDR live telemetry.</div>
+      <div class="rc-footer"><div class="rc-status active"><div class="rc-dot"></div>Active</div><span class="rc-arrow">→</span></div>
+    </a>
+    <a href="https://github.com/NEXERCH/Atlas" target="_blank" class="research-card">
+      <div class="rc-id">SYS — 002</div>
+      <div class="rc-name">ATLAS</div>
+      <div class="rc-full">Autonomous Launch & Termination Architecture System</div>
+      <div class="rc-desc">Complete autonomous flight software for reusable launch vehicles. 1 kHz C++17 real-time control loop. 19-state Extended Kalman Filter. Triple-redundant IMU voting. RTOS-ready. All hardware constants from manufacturer datasheets.</div>
+      <div class="rc-footer"><div class="rc-status active"><div class="rc-dot"></div>Active</div><span class="rc-arrow">→</span></div>
+    </a>
+    <a href="https://github.com/chiragrathiresearcher/M17" target="_blank" class="research-card">
+      <div class="rc-id">SYS — 003</div>
+      <div class="rc-name">M17</div>
+      <div class="rc-full">K-Framework for Autonomous Celestial Discovery</div>
+      <div class="rc-desc">Advanced heuristic pipeline for space domain awareness and deep-space forensic analysis. Multi-language architecture — C++17, Fortran, Rust, CUDA. Post-Newtonian relativistic corrections. Dark matter signature detection.</div>
+      <div class="rc-footer"><div class="rc-status active"><div class="rc-dot"></div>Active</div><span class="rc-arrow">→</span></div>
+    </a>
+    <a href="https://nexerch.github.io" target="_blank" class="research-card">
+      <div class="rc-id">ORG — 001</div>
+      <div class="rc-name">NEXERCH</div>
+      <div class="rc-full">Independent Research Organization for Advanced Systems</div>
+      <div class="rc-desc">Building open standards for autonomous aerospace systems. Proving independent research can compete with institutions. We build what the problem demands. Nothing less.</div>
+      <div class="rc-footer"><div class="rc-status active"><div class="rc-dot"></div>Active</div><span class="rc-arrow">→</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- MISSION -->
+<div class="mission-sec">
+  <p class="mission-main">Independent research.<br/>No walls. No committees.<br/>Just the problem.</p>
+  <p class="mission-sub">ORCID: 0009-0008-1682-4369 · chiragrathiresearcher@gmail.com</p>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="sec" id="publications">
+  <div class="sec-label">Publications</div>
+  <h2 class="sec-title">Research Output</h2>
+  <div class="pub-list">
+    <a href="https://doi.org/10.5281/zenodo.18525587" target="_blank" class="pub-card">
+      <div>
+        <div class="pub-tag">Under Review — Foundations of Physics · Springer Nature · 2026</div>
+        <div class="pub-title">The Persistence Criterion: Distinguishing Epistemic Obscuration from Ontological Elimination in Physical Theories</div>
+        <div class="pub-meta">Chirag Rathi · Independent Researcher · Reviewed by Prof. H.C. Verma, IIT Kanpur</div>
+      </div>
+      <div class="pub-doi">10.5281/zenodo.18525587 →</div>
+    </a>
+    <a href="https://doi.org/10.5281/zenodo.18524965" target="_blank" class="pub-card">
+      <div>
+        <div class="pub-tag">Preprint · Zenodo · 2026</div>
+        <div class="pub-title">Post-Shell-Crossing Void Re-expansion (PSC-VR): Cosmological Suppression in ΛCDM — Analytical Proof and Numerical Verification</div>
+        <div class="pub-meta">Chirag Rathi · Independent Researcher</div>
+      </div>
+      <div class="pub-doi">10.5281/zenodo.18524965 →</div>
+    </a>
+    <a href="https://doi.org/10.5281/zenodo.18528558" target="_blank" class="pub-card">
+      <div>
+        <div class="pub-tag">Preprint · Zenodo · 2026</div>
+        <div class="pub-title">A Quantitative Study of Octahedral Orbital Architectures</div>
+        <div class="pub-meta">Chirag Rathi · Independent Researcher</div>
+      </div>
+      <div class="pub-doi">10.5281/zenodo.18528558 →</div>
+    </a>
+    <a href="https://doi.org/10.5281/zenodo.19039518" target="_blank" class="pub-card">
+      <div>
+        <div class="pub-tag">Software Release · Zenodo · Apache 2.0 · 2026</div>
+        <div class="pub-title">ATLAS: Autonomous Launch and Termination Architecture System v1.0</div>
+        <div class="pub-meta">Chirag Rathi · NEXERCH</div>
+      </div>
+      <div class="pub-doi">10.5281/zenodo.19039518 →</div>
+    </a>
+    <a href="https://doi.org/10.5281/zenodo.19023905" target="_blank" class="pub-card">
+      <div>
+        <div class="pub-tag">Software Release · Zenodo · Apache 2.0 · 2026</div>
+        <div class="pub-title">ARVS: Adaptive Robust Verification System v1.0</div>
+        <div class="pub-meta">Chirag Rathi · NEXERCH</div>
+      </div>
+      <div class="pub-doi">10.5281/zenodo.19023905 →</div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="sec" id="contact">
+  <div class="sec-label">Contact</div>
+  <h2 class="sec-title">Get in Touch</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro">Open to collaboration with researchers working on quantum foundations, autonomous systems, formal verification, or computational astrophysics.</p>
+      <div class="contact-email-label">Email</div>
+      <a href="mailto:chiragrathiresearcher@gmail.com" class="contact-email">chiragrathiresearcher@gmail.com</a>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="https://nexerch.github.io" target="_blank" class="btn btn-white" style="padding:12px 24px; font-size:13px;">NEXERCH →</a>
+        <a href="https://github.com/chiragrathiresearcher" target="_blank" class="btn btn-outline" style="padding:12px 24px; font-size:13px;">GitHub →</a>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="https://orcid.org/0009-0008-1682-4369" target="_blank" class="contact-link">
+        <span class="cl-label">ORCID</span>
+        <span class="cl-value">0009-0008-1682-4369</span>
+        <span class="cl-arrow">→</span>
+      </a>
+      <a href="https://github.com/NEXERCH" target="_blank" class="contact-link">
+        <span class="cl-label">GitHub — NEXERCH</span>
+        <span class="cl-value">github.com/NEXERCH</span>
+        <span class="cl-arrow">→</span>
+      </a>
+      <a href="https://github.com/chiragrathiresearcher" target="_blank" class="contact-link">
+        <span class="cl-label">GitHub — Personal</span>
+        <span class="cl-value">chiragrathiresearcher</span>
+        <span class="cl-arrow">→</span>
+      </a>
+      <a href="https://zenodo.org/communities/interdisciplinary-research-community" target="_blank" class="contact-link">
+        <span class="cl-label">Zenodo Community</span>
+        <span class="cl-value">Interdisciplinary Research</span>
+        <span class="cl-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/chirag-rathi-8577023b6" target="_blank" class="contact-link">
+        <span class="cl-label">LinkedIn</span>
+        <span class="cl-value">chirag-rathi-8577023b6</span>
+        <span class="cl-arrow">→</span>
+      </a>
+      <a href="https://twitter.com/ChiragRathi_res" target="_blank" class="contact-link">
+        <span class="cl-label">X / Twitter</span>
+        <span class="cl-value">@ChiragRathi_res</span>
+        <span class="cl-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="foot-name">Chirag Rathi</div>
+    <div class="foot-tag">Independent Researcher · NEXERCH · ORCID 0009-0008-1682-4369</div>
+  </div>
+  <div class="foot-links">
+    <a href="https://nexerch.github.io" target="_blank">NEXERCH</a>
+    <a href="https://github.com/chiragrathiresearcher" target="_blank">GitHub</a>
+    <a href="https://orcid.org/0009-0008-1682-4369" target="_blank">ORCID</a>
+    <a href="https://twitter.com/ChiragRathi_res" target="_blank">X</a>
+  </div>
+</footer>
+
+</body>
+</html>
