@@ -32,7 +32,7 @@ Independent researcher working at the intersection of autonomous systems, quantu
 
 ## Links
 
-[NEXERCH](https://nexerch.github.io) · [Personal Site](https://chiragrathi.github.io) · [ORCID](https://orcid.org/0009-0008-1682-4369) · [Zenodo](https://zenodo.org/search?q=chirag+rathi) · [LinkedIn](https://linkedin.com/in/chirag-rathi-8577023b6)
+[NEXERCH](https://nexerch.github.io) · [Personal Site](https://chiragrathiresearcher.github.io/chiragrathi.github.io/) · [ORCID](https://orcid.org/0009-0008-1682-4369) · [Zenodo](https://zenodo.org/search?q=chirag+rathi) · [LinkedIn](https://linkedin.com/in/chirag-rathi-8577023b6)
 
 ---
 
